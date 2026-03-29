@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D Floor Plan - High Quality Render</title>
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #050505; font-family: 'Segoe UI', sans-serif; }
+        #ui { 
+            position: absolute; top: 20px; left: 20px; 
+            color: white; background: rgba(20, 20, 20, 0.9); 
+            padding: 20px; border-radius: 12px; border: 1px solid #333;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            z-index: 100;
+        }
+        h2 { margin: 0 0 5px 0; font-size: 18px; color: #00aaff; }
+        #status { font-size: 12px; opacity: 0.7; }
+    </style>
+</head>
+<body>
+    <div id="ui">
+        <h2>Modern Floor Plan</h2>
+        <div id="status">Initializing Environment...</div>
+    </div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        // Settings
+        const SCALE = 0.2;
+        const WALL_HEIGHT = 12;
+        const WALL_THICKNESS = 1.2;
+
+        // --- 1. SCENE & RENDERER SETUP ---
+        const scene = new THREE.Scene();
+        // Soft blue-ish fog to create depth in the distance
+        scene.fog = new THREE.FogExp2(0x111111, 0.002);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        // Enable Shadows & Tone Mapping
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        document.body.appendChild(renderer.domElement);
+
+        const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 1, 2000);
+        camera.position.set(150, 150, 150);
+
+        const controls = new OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+
+        // --- 2. ENVIRONMENT & LIGHTING ---
+        
+        // Hemisphere Light: Simulates sky color (top) and ground color (bottom)
+        const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444, 1.5);
+        scene.add(hemiLight);
+
+        // Directional Light: Acts as the "Sun" for shadows
+        const sunLight = new THREE.DirectionalLight(0xffffff, 2);
+        sunLight.position.set(100, 200, 100);
+        sunLight.castShadow = true;
+        // Optimize shadow area
+        sunLight.shadow.camera.left = -200;
+        sunLight.shadow.camera.right = 200;
+        sunLight.shadow.camera.top = 200;
+        sunLight.shadow.camera.bottom = -200;
+        sunLight.shadow.mapSize.width = 2048;
+        sunLight.shadow.mapSize.height = 2048;
+        scene.add(sunLight);
+
+        // Ground Plane (To catch shadows)
+        const groundGeo = new THREE.PlaneGeometry(1000, 1000);
+        const groundMat = new THREE.MeshStandardMaterial({ color: 0x1a1a1a, roughness: 0.8 });
+        const ground = new THREE.Mesh(groundGeo, groundMat);
+        ground.rotation.x = -Math.PI / 2;
+        ground.receiveShadow = true;
+        scene.add(ground);
+
+        // --- 3. WALL BUILDER ---
+        const createWall = (start, end) => {
+            const x1 = start.x * SCALE, z1 = start.y * SCALE;
+            const x2 = end.x * SCALE, z2 = end.y * SCALE;
+
+            const dx = x2 - x1;
+            const dz = z2 - z1;
+            const length = Math.sqrt(dx * dx + dz * dz);
+            if (length < 0.1) return;
+
+            const geo = new THREE.BoxGeometry(length, WALL_HEIGHT, WALL_THICKNESS);
+            // Using MeshStandardMaterial for better lighting reaction
+            const mat = new THREE.MeshStandardMaterial({ 
+                color: 0xffffff, 
+                roughness: 0.4, 
+                metalness: 0.1 
+            });
+            const mesh = new THREE.Mesh(geo, mat);
+
+            mesh.position.set(x1 + dx / 2, WALL_HEIGHT / 2, z1 + dz / 2);
+            mesh.rotation.y = -Math.atan2(dz, dx);
+            mesh.castShadow = true;
+            mesh.receiveShadow = true;
+            scene.add(mesh);
+        };
+
+        // --- 4. API FETCH ---
+        async function loadWalls() {
+            const statusEl = document.getElementById('status');
+            try {
+                const response = await fetch('http://127.0.0.1:5000/api/data');
+                const result = await response.json();
+                if (result.status === "success") {
+                    result.data.forEach(w => createWall(w.start, w.end));
+                    statusEl.innerHTML = `Environment Loaded. ${result.data.length} segments detected.`;
+                }
+            } catch (err) {
+                statusEl.innerHTML = `<span style="color:red">Connection Failed</span>`;
+            }
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            controls.update();
+            renderer.render(scene, camera);
+        }
+
+        loadWalls();
+        animate();
+
+        window.onresize = () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        };
+    </script>
+</body>
+</html>
