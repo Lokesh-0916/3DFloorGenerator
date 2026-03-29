@@ -1,13 +1,24 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
-from Main import get_Cordinates
-import anthropic
+# Inner pipeline — room/window/gate detection
+from turtle_test import get_wall_json
+from t import detect_gates_robust, detect_windows_json
+# Outer pipeline — structural classification for material analysis
+from main import get_Cordinates as get_classified_walls
 from material_analysis import MaterialAnalyser, StructuralElement, build_explainability_prompt
 import google.generativeai as genai
+from dotenv import load_dotenv
+import os
 
-GEMINI_API_KEY = "AIzaSyCo-rslFCMoyBo6P5EkAB4e1rKlOnmhEWg"
+load_dotenv()  # loads .env file
+
+api_key = os.getenv("API_KEY")
+
+
+
+GEMINI_API_KEY = api_key
 genai.configure(api_key=GEMINI_API_KEY)
-model = genai.GenerativeModel("gemini-2.5-flash")
+gemini_model = genai.GenerativeModel("gemini-2.5-flash")
 
 app = Flask(__name__)
 CORS(app)
@@ -73,10 +84,18 @@ def _build_elements(walls: list[dict]) -> list[StructuralElement]:
 
 @app.route('/api/data')
 def get_data():
-    """Original route — walls only (keeps frontend working as-is)."""
+    """Original inner route — walls + windows + gates for 3D rendering."""
     try:
-        walls = get_Cordinates()
-        return jsonify({"status": "success", "data": walls})
+        raw_coords = get_wall_json('test/F3.png')
+        windows    = detect_windows_json('test/F3.png')
+        mask, gates_data = detect_gates_robust('test/F3.png')
+
+        return jsonify({
+            "status": "success",
+            "data":    raw_coords,
+            "windows": windows,
+            "gates":   gates_data
+        })
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
 
@@ -85,13 +104,13 @@ def get_data():
 def material_analysis():
     """
     Full pipeline:
-      1. Parse floor plan (OpenCV)
+      1. Parse floor plan with structural classifier (Main.py / OpenCV)
       2. Classify walls + infer slab/columns
       3. Run material tradeoff analysis
       4. Return enriched JSON for frontend panel
     """
     try:
-        walls = get_Cordinates()
+        walls    = get_classified_walls()
         elements = _build_elements(walls)
         analyser.analyse(elements)
 
@@ -106,8 +125,7 @@ def material_analysis():
                 r["end"]       = wdata["end"]
                 r["length_px"] = wdata["length_px"]
 
-        # Attach the LLM explainability prompt text (frontend can display as-is,
-        # or you can call an LLM API here and replace prompt_text with explanation)
+        # Attach LLM explainability prompt text
         for i, el in enumerate(elements):
             result[i]["prompt_text"] = build_explainability_prompt(el)
 
@@ -116,7 +134,7 @@ def material_analysis():
         partitions   = [r for r in result if r["element_type"] == "partition_wall"]
 
         return jsonify({
-            "status":   "success",
+            "status":  "success",
             "summary": {
                 "total_elements":     len(result),
                 "load_bearing_walls": len(load_bearing),
@@ -125,7 +143,7 @@ def material_analysis():
                 "columns":            len([r for r in result if r["element_type"] == "column"]),
             },
             "analysis": result,
-            # Also return raw wall coords so frontend can render both
+            # Raw wall coords so frontend can render both
             "walls": walls,
         })
 
@@ -134,17 +152,18 @@ def material_analysis():
         return jsonify({"status": "error", "message": str(e),
                         "trace": traceback.format_exc()}), 500
 
+
 @app.route('/api/chat', methods=['POST'])
 def chat():
     """
     Ask AI section using Google Gemini.
+    Expects: { "question": "...", "element": { ...full element dict... } }
     """
     try:
-        body = request.get_json()
+        body     = request.get_json()
         question = body.get('question', '')
-        el = body.get('element', {})
+        el       = body.get('element', {})
 
-        # System Prompt for Gemini
         prompt = f"""
         You are an AI Structural Engineer. Answer the user's question about a floor plan element.
         CONTEXT:
@@ -152,91 +171,17 @@ def chat():
         Type: {el.get('element_type')}
         Span: {el.get('span_m')} meters
         Current Materials: {el.get('recommendations', [{}])[0].get('material', 'None')}
-        
+
         USER QUESTION: {question}
-        
+
         Answer professionally in 2-3 sentences. Cite structural safety where applicable.
         """
 
-        # Gemini API Call
-        response = model.generate_content(prompt)
-        
+        response = gemini_model.generate_content(prompt)
         return jsonify({"answer": response.text})
 
     except Exception as e:
         return jsonify({"answer": f"Gemini Error: {str(e)}"}), 500
-# @app.route('/api/chat', methods=['POST'])
-# def chat():
-#     """
-#     Per-element cross-questioning.
-#     Expects: { "question": "...", "element": { ...full element dict... } }
-#     Returns: { "answer": "..." }
-
-#     Uses the Anthropic SDK if available, falls back to a rule-based response.
-#     """
-#     try:
-#         body    = request.get_json()
-#         question = body.get('question', '').strip()
-#         el       = body.get('element', {})
-
-#         if not question:
-#             return jsonify({"answer": "Please ask a question."})
-
-#         # Build a rich system prompt grounded in real element data
-#         recs = el.get('recommendations', [])[:3]
-#         rec_text = "\n".join(
-#             f"  #{i+1} {r['material']} — score {r['score']:.3f}, "
-#             f"Cost:{r['cost_label']}, Str:{r['strength_label']}, Dur:{r['durability_label']}, "
-#             f"₹{r['unit_cost_inr']:,}/m³. {r['notes']}"
-#             for i, r in enumerate(recs)
-#         )
-#         concerns_text = "\n".join(f"  ⚠ {c}" for c in el.get('concerns', [])) or "  None."
-#         wp = el.get('weight_profile', {})
-
-#         system = f"""You are a structural engineering assistant embedded in a 3D floor plan tool.
-# The user is asking about a specific structural element. Answer concisely (2–4 sentences max).
-# Cite actual numbers — span, score, cost — don't give vague answers.
-
-# Element: {el.get('element_id')} ({el.get('element_type','').replace('_',' ')})
-# Room: {el.get('room_label','N/A')}
-# Span: {el.get('span_m')} m | Area: {el.get('area_m2')} m² | Outer: {el.get('is_outer')}
-
-# Scoring weights: strength={wp.get('strength','?')}, durability={wp.get('durability','?')}, cost={wp.get('cost','?')}
-# Rationale: {wp.get('description','')}
-
-# Top material recommendations:
-# {rec_text}
-
-# Structural concerns:
-# {concerns_text}
-# """
-
-#         # Try Anthropic SDK
-#         try:
-#             client = anthropic.Anthropic()
-#             msg = client.messages.create(
-#                 model="claude-sonnet-4-20250514",
-#                 max_tokens=300,
-#                 system=system,
-#                 messages=[{"role": "user", "content": question}]
-#             )
-#             answer = msg.content[0].text
-#         except Exception:
-#             # Fallback: rule-based answer using element data
-#             top = recs[0] if recs else {}
-#             answer = (
-#                 f"{el.get('element_id')} is a {el.get('element_type','').replace('_',' ')} "
-#                 f"spanning {el.get('span_m')} m. "
-#                 f"The top recommendation is {top.get('material','—')} "
-#                 f"(score {top.get('score',0):.3f}) due to its {top.get('strength_label','—')} strength "
-#                 f"at ₹{top.get('unit_cost_inr',0):,}/m³. "
-#                 f"{top.get('notes','')}"
-#             )
-
-#         return jsonify({"answer": answer})
-
-#     except Exception as e:
-#         return jsonify({"answer": f"Error: {str(e)}"}), 500
 
 
 if __name__ == "__main__":

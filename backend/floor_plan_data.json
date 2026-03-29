@@ -1,0 +1,157 @@
+{
+  "project_name": "test/F2.png",
+  "image_size": {
+    "width": 448,
+    "height": 368
+  },
+  "rooms": [
+    {
+      "name": "Room 1",
+      "walls": [
+        {
+          "id": "Room_1_W0",
+          "start": {
+            "x": 172,
+            "y": 277
+          },
+          "end": {
+            "x": 174,
+            "y": 301
+          },
+          "length": 24,
+          "openings": []
+        },
+        {
+          "id": "Room_1_W1",
+          "start": {
+            "x": 253,
+            "y": 24
+          },
+          "end": {
+            "x": 301,
+            "y": 27
+          },
+          "length": 48,
+          "openings": [
+            {
+              "type": "gate",
+              "offset": 54,
+              "width": 17
+            },
+            {
+              "type": "window",
+              "offset": 68,
+              "width": 71
+            },
+            {
+              "type": "window",
+              "offset": 0,
+              "width": 53
+            },
+            {
+              "type": "window",
+              "offset": 76,
+              "width": 51
+            },
+            {
+              "type": "window",
+              "offset": 0,
+              "width": 51
+            }
+          ]
+        },
+        {
+          "id": "Room_1_W2",
+          "start": {
+            "x": 93,
+            "y": 24
+          },
+          "end": {
+            "x": 174,
+            "y": 273
+          },
+          "length": 262,
+          "openings": [
+            {
+              "type": "gate",
+              "offset": 272,
+              "width": 17
+            },
+            {
+              "type": "gate",
+              "offset": 232,
+              "width": 15
+            },
+            {
+              "type": "gate",
+              "offset": 145,
+              "width": 18
+            },
+            {
+              "type": "window",
+              "offset": 225,
+              "width": 33
+            },
+            {
+              "type": "window",
+              "offset": 121,
+              "width": 34
+            }
+          ]
+        },
+        {
+          "id": "Room_1_W3",
+          "start": {
+            "x": 23,
+            "y": 24
+          },
+          "end": {
+            "x": 405,
+            "y": 301
+          },
+          "length": 472,
+          "openings": [
+            {
+              "type": "window",
+              "offset": 439,
+              "width": 49
+            },
+            {
+              "type": "window",
+              "offset": 435,
+              "width": 49
+            },
+            {
+              "type": "window",
+              "offset": 33,
+              "width": 54
+            },
+            {
+              "type": "window",
+              "offset": 41,
+              "width": 53
+            },
+            {
+              "type": "window",
+              "offset": 36,
+              "width": 51
+            }
+          ]
+        },
+        {
+          "id": "Room_1_W4",
+          "start": {
+            "x": 153,
+            "y": 4
+          },
+          "end": {
+            "x": 163,
+            "y": 9
+          },
+          "length": 11,
+          "openings": []
+        }
+      ]
+    }
+  ]
+}

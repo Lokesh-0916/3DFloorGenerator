@@ -19,6 +19,8 @@
             --pt-col: #00d4aa;
             --sl-col: #bf5af2;
             --co-col: #ffd60a;
+            --win-col: #00aaff;
+            --gate-col: #8B4513;
             --sel-col: #e8ff47;
         }
 
@@ -175,13 +177,8 @@
             padding: 14px 18px;
         }
 
-        #ov-body::-webkit-scrollbar {
-            width: 3px;
-        }
-
-        #ov-body::-webkit-scrollbar-thumb {
-            background: #1a1d2e;
-        }
+        #ov-body::-webkit-scrollbar { width: 3px; }
+        #ov-body::-webkit-scrollbar-thumb { background: #1a1d2e; }
 
         #ov-summary-grid {
             display: grid;
@@ -218,9 +215,7 @@
             line-height: 1.7;
         }
 
-        #ov-hint strong {
-            color: #8090a0;
-        }
+        #ov-hint strong { color: #8090a0; }
 
         .ov-concern {
             background: rgba(255, 100, 0, 0.06);
@@ -253,9 +248,7 @@
             transition: background 0.15s;
         }
 
-        .ov-el-row:hover {
-            background: rgba(232, 255, 71, 0.04);
-        }
+        .ov-el-row:hover { background: rgba(232, 255, 71, 0.04); }
 
         .ov-el-dot {
             width: 8px;
@@ -264,10 +257,7 @@
             flex-shrink: 0;
         }
 
-        .ov-el-name {
-            font-size: 11px;
-            flex: 1;
-        }
+        .ov-el-name { font-size: 11px; flex: 1; }
 
         .ov-el-meta {
             font-size: 9px;
@@ -299,9 +289,7 @@
             transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        #panel.open {
-            transform: translateX(0);
-        }
+        #panel.open { transform: translateX(0); }
 
         #panel-header {
             padding: 16px 18px 12px;
@@ -318,21 +306,12 @@
             letter-spacing: 1px;
         }
 
-        #panel-el-label {
-            font-size: 13px;
-            font-weight: 600;
-            margin-top: 2px;
-        }
+        #panel-el-label { font-size: 13px; font-weight: 600; margin-top: 2px; }
 
-        #panel-el-meta {
-            font-size: 10px;
-            color: var(--muted);
-            margin-top: 3px;
-        }
+        #panel-el-meta { font-size: 10px; color: var(--muted); margin-top: 3px; }
 
         #panel-close {
-            width: 28px;
-            height: 28px;
+            width: 28px; height: 28px;
             border-radius: 50%;
             background: #1a1d2e;
             border: none;
@@ -340,16 +319,11 @@
             cursor: pointer;
             font-size: 14px;
             flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; align-items: center; justify-content: center;
             transition: background 0.2s;
         }
 
-        #panel-close:hover {
-            background: #2a2d3e;
-            color: #fff;
-        }
+        #panel-close:hover { background: #2a2d3e; color: #fff; }
 
         #panel-tabs {
             display: flex;
@@ -369,456 +343,279 @@
             transition: all 0.2s;
         }
 
-        .ptab.active {
-            color: var(--accent);
-            border-color: var(--accent);
-        }
+        .ptab.active { color: var(--accent); border-color: var(--accent); }
 
-        #panel-body {
-            flex: 1;
-            overflow-y: auto;
-        }
-
-        #panel-body::-webkit-scrollbar {
-            width: 3px;
-        }
-
-        #panel-body::-webkit-scrollbar-thumb {
-            background: #1a1d2e;
-        }
+        #panel-body { flex: 1; overflow-y: auto; }
+        #panel-body::-webkit-scrollbar { width: 3px; }
+        #panel-body::-webkit-scrollbar-thumb { background: #1a1d2e; }
 
         /* Details */
-        #tab-details {
-            padding: 14px 18px;
-        }
+        #tab-details { padding: 14px 18px; }
 
         .type-badge {
             display: inline-block;
-            font-size: 9px;
-            font-weight: 600;
-            padding: 3px 9px;
-            border-radius: 12px;
-            letter-spacing: 0.6px;
-            margin-bottom: 12px;
+            font-size: 9px; font-weight: 600;
+            padding: 3px 9px; border-radius: 12px;
+            letter-spacing: 0.6px; margin-bottom: 12px;
             text-transform: uppercase;
         }
 
-        .badge-lb {
-            background: rgba(255, 107, 53, 0.15);
-            color: var(--lb-col);
-            border: 1px solid rgba(255, 107, 53, 0.3);
-        }
+        .badge-lb { background: rgba(255,107,53,0.15); color: var(--lb-col); border: 1px solid rgba(255,107,53,0.3); }
+        .badge-pt { background: rgba(0,212,170,0.12); color: var(--pt-col); border: 1px solid rgba(0,212,170,0.25); }
+        .badge-sl { background: rgba(191,90,242,0.12); color: var(--sl-col); border: 1px solid rgba(191,90,242,0.25); }
+        .badge-co { background: rgba(255,214,10,0.12); color: var(--co-col); border: 1px solid rgba(255,214,10,0.25); }
 
-        .badge-pt {
-            background: rgba(0, 212, 170, 0.12);
-            color: var(--pt-col);
-            border: 1px solid rgba(0, 212, 170, 0.25);
-        }
-
-        .badge-sl {
-            background: rgba(191, 90, 242, 0.12);
-            color: var(--sl-col);
-            border: 1px solid rgba(191, 90, 242, 0.25);
-        }
-
-        .badge-co {
-            background: rgba(255, 214, 10, 0.12);
-            color: var(--co-col);
-            border: 1px solid rgba(255, 214, 10, 0.25);
-        }
-
-        .weights-row {
-            display: flex;
-            gap: 6px;
-            margin-bottom: 14px;
-        }
+        .weights-row { display: flex; gap: 6px; margin-bottom: 14px; }
 
         .w-chip {
-            flex: 1;
-            background: #0f1120;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            padding: 8px 6px;
-            text-align: center;
+            flex: 1; background: #0f1120;
+            border: 1px solid var(--border); border-radius: 6px;
+            padding: 8px 6px; text-align: center;
         }
 
-        .w-chip .wval {
-            font-size: 16px;
-            font-weight: 600;
-            font-family: 'IBM Plex Mono', monospace;
-        }
-
-        .w-chip .wlbl {
-            font-size: 8px;
-            color: var(--muted);
-            margin-top: 2px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .w-str .wval {
-            color: var(--lb-col);
-        }
-
-        .w-dur .wval {
-            color: var(--pt-col);
-        }
-
-        .w-cst .wval {
-            color: var(--sl-col);
-        }
+        .w-chip .wval { font-size: 16px; font-weight: 600; font-family: 'IBM Plex Mono', monospace; }
+        .w-chip .wlbl { font-size: 8px; color: var(--muted); margin-top: 2px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .w-str .wval { color: var(--lb-col); }
+        .w-dur .wval { color: var(--pt-col); }
+        .w-cst .wval { color: var(--sl-col); }
 
         .mat-section-title {
-            font-size: 9px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--muted);
-            margin-bottom: 8px;
+            font-size: 9px; text-transform: uppercase; letter-spacing: 1px;
+            color: var(--muted); margin-bottom: 8px;
             font-family: 'IBM Plex Mono', monospace;
         }
 
         .mat-card {
-            background: #0f1120;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 10px 12px;
-            margin-bottom: 8px;
-            position: relative;
-            overflow: hidden;
+            background: #0f1120; border: 1px solid var(--border);
+            border-radius: 8px; padding: 10px 12px; margin-bottom: 8px;
+            position: relative; overflow: hidden;
         }
 
-        .mat-card.rank-1 {
-            border-color: rgba(232, 255, 71, 0.3);
-        }
+        .mat-card.rank-1 { border-color: rgba(232,255,71,0.3); }
 
-        .mat-rank-stripe {
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-        }
+        .mat-rank-stripe { position: absolute; left: 0; top: 0; bottom: 0; width: 3px; }
+        .stripe-1 { background: var(--accent); }
+        .stripe-2 { background: var(--muted); }
+        .stripe-3 { background: #2a2d3e; }
 
-        .stripe-1 {
-            background: var(--accent);
-        }
-
-        .stripe-2 {
-            background: var(--muted);
-        }
-
-        .stripe-3 {
-            background: #2a2d3e;
-        }
-
-        .mat-top {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-left: 8px;
-        }
-
-        .mat-name {
-            font-size: 12px;
-            font-weight: 600;
-            flex: 1;
-        }
-
+        .mat-top { display: flex; align-items: center; gap: 8px; margin-left: 8px; }
+        .mat-name { font-size: 12px; font-weight: 600; flex: 1; }
         .mat-score {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 11px;
-            color: var(--accent);
-            background: rgba(232, 255, 71, 0.08);
-            padding: 2px 7px;
-            border-radius: 4px;
+            font-family: 'IBM Plex Mono', monospace; font-size: 11px;
+            color: var(--accent); background: rgba(232,255,71,0.08);
+            padding: 2px 7px; border-radius: 4px;
         }
 
-        .mat-bar-bg {
-            background: #1a1d2e;
-            height: 3px;
-            border-radius: 2px;
-            margin: 6px 0 6px 8px;
-        }
+        /* mat-bar removed */
 
-        .mat-bar-fill {
-            height: 3px;
-            border-radius: 2px;
-            background: linear-gradient(90deg, #2a5a2a, var(--accent));
-        }
-
-        .mat-tags {
-            display: flex;
-            gap: 4px;
-            flex-wrap: wrap;
-            margin-left: 8px;
-        }
-
-        .mat-tag {
-            font-size: 9px;
-            padding: 1px 6px;
-            border-radius: 3px;
-            background: #1a1d2e;
-            color: #6a7090;
-        }
-
-        .mat-note {
-            font-size: 9px;
-            color: #454860;
-            margin: 4px 0 0 8px;
-            font-style: italic;
-        }
+        .mat-tags { display: flex; gap: 4px; flex-wrap: wrap; margin-left: 8px; }
+        .mat-tag { font-size: 9px; padding: 1px 6px; border-radius: 3px; background: #1a1d2e; color: #6a7090; }
+        .mat-note { font-size: 9px; color: #454860; margin: 4px 0 0 8px; font-style: italic; }
 
         .concern-box {
-            background: rgba(255, 100, 0, 0.07);
-            border: 1px solid rgba(255, 100, 0, 0.25);
-            border-radius: 6px;
-            padding: 10px 12px;
-            margin-top: 12px;
-            font-size: 10px;
-            color: #ff9055;
-            line-height: 1.6;
+            background: rgba(255,100,0,0.07); border: 1px solid rgba(255,100,0,0.25);
+            border-radius: 6px; padding: 10px 12px; margin-top: 12px;
+            font-size: 10px; color: #ff9055; line-height: 1.6;
         }
 
-        .concern-box strong {
-            display: block;
-            margin-bottom: 3px;
-            font-size: 9px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            color: #ff6030;
-        }
-
-        /* Cost card */
-        .cost-hero {
-            background: linear-gradient(135deg, #0f1120 0%, #141830 100%);
-            border: 1px solid rgba(232, 255, 71, 0.2);
-            border-radius: 10px;
-            padding: 14px 16px;
-            margin-bottom: 14px;
-        }
-        .cost-hero .cost-val {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 22px;
-            font-weight: 600;
-            color: var(--accent);
-        }
-        .cost-hero .cost-sub {
-            font-size: 9px;
-            color: var(--muted);
-            margin-top: 3px;
-        }
-        .cost-hero .cost-mat {
-            font-size: 10px;
-            color: #8090a0;
-            margin-top: 2px;
-        }
-        .mat-cost-tag {
-            font-size: 9px;
-            padding: 2px 6px;
-            border-radius: 3px;
-            background: rgba(232, 255, 71, 0.08);
-            color: var(--accent);
-            font-family: 'IBM Plex Mono', monospace;
-            margin-left: auto;
-        }
+        .concern-box strong { display: block; margin-bottom: 3px; font-size: 9px; text-transform: uppercase; letter-spacing: 0.5px; color: #ff6030; }
 
         /* Coordinates */
         .coords-section {
-            background: #0f1120;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 10px 12px;
-            margin-bottom: 14px;
+            background: #0f1120; border: 1px solid var(--border);
+            border-radius: 8px; padding: 10px 12px; margin-bottom: 14px;
         }
-        .coords-title {
-            font-size: 9px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--muted);
-            margin-bottom: 8px;
+        .coords-title { font-size: 9px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 8px; font-family: 'IBM Plex Mono', monospace; }
+        .coords-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+        .coord-item .clbl { font-size: 8px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.5px; }
+        .coord-item .cval { font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--text); margin-top: 1px; }
+
+        /* ── Premium Chart Popup ─────────────────────────────────────────── */
+        #chart-popup {
+            position: fixed;
+            z-index: 999;
+            pointer-events: none;
+            opacity: 0;
+            transform: scale(0.84) translateY(14px);
+            transition: opacity 0.28s cubic-bezier(.16,1,.3,1), transform 0.28s cubic-bezier(.16,1,.3,1);
+        }
+        #chart-popup.visible {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            pointer-events: auto;
+        }
+        #chart-popup-inner {
+            background: linear-gradient(145deg, #0d0f20 0%, #090b18 100%);
+            border: 1px solid rgba(232,255,71,0.18);
+            border-radius: 20px;
+            padding: 20px 22px 18px;
+            width: 320px;
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.85),
+                0 0 0 1px rgba(232,255,71,0.05),
+                inset 0 1px 0 rgba(255,255,255,0.04);
+            backdrop-filter: blur(18px);
+        }
+        #chart-popup-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            margin-bottom: 4px;
+        }
+        #chart-popup-title {
             font-family: 'IBM Plex Mono', monospace;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent);
+            letter-spacing: 0.5px;
+            line-height: 1.2;
         }
-        .coords-grid {
+        #chart-popup-rank-badge {
+            font-size: 8px;
+            font-family: 'IBM Plex Mono', monospace;
+            background: rgba(232,255,71,0.1);
+            color: var(--accent);
+            border: 1px solid rgba(232,255,71,0.25);
+            border-radius: 6px;
+            padding: 2px 8px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            flex-shrink: 0;
+            margin-left: 10px;
+            margin-top: 2px;
+        }
+        #chart-popup-sub {
+            font-size: 9px;
+            color: var(--muted);
+            margin-bottom: 14px;
+            font-family: 'IBM Plex Mono', monospace;
+            letter-spacing: 0.3px;
+        }
+        #chart-popup canvas {
+            display: block;
+            margin: 0 auto;
+        }
+        .chart-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(232,255,71,0.12), transparent);
+            margin: 14px 0;
+        }
+        .chart-stats-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 6px;
+            gap: 8px;
+            margin-top: 0;
         }
-        .coord-item .clbl {
-            font-size: 8px;
-            color: var(--muted);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .chart-stat {
+            text-align: center;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 10px;
+            padding: 9px 6px 8px;
+            position: relative;
+            overflow: hidden;
         }
-        .coord-item .cval {
+        .chart-stat::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            border-radius: 10px 10px 0 0;
+        }
+        .chart-stat.cs-strength::before { background: var(--lb-col); }
+        .chart-stat.cs-durability::before { background: var(--pt-col); }
+        .chart-stat.cs-cost::before { background: var(--sl-col); }
+        .chart-stat.cs-score::before { background: var(--accent); }
+        .chart-stat .cs-val {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 12px;
-            color: var(--text);
-            margin-top: 1px;
+            font-weight: 600;
+            line-height: 1;
         }
-
-        /* Comparison table */
-        .cmp-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 14px;
-            font-size: 10px;
-        }
-        .cmp-table th {
-            font-family: 'IBM Plex Mono', monospace;
+        .chart-stat .cs-lbl {
             font-size: 8px;
+            color: var(--muted);
+            margin-top: 4px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            color: var(--muted);
-            padding: 6px 4px;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
         }
-        .cmp-table td {
-            padding: 7px 4px;
-            border-bottom: 1px solid var(--border);
-            vertical-align: middle;
-        }
-        .cmp-table tr:last-child td { border-bottom: none; }
-        .cmp-bar-wrap {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .cmp-bar {
-            height: 6px;
-            border-radius: 3px;
-            transition: width 0.5s ease;
-        }
-        .cmp-bar-label {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 9px;
-            color: var(--muted);
-            white-space: nowrap;
-        }
-        .cmp-mat-name {
-            font-weight: 600;
-            font-size: 10px;
-        }
-        .cmp-best {
-            color: var(--accent);
+        .chart-stat.cs-strength .cs-val { color: var(--lb-col); }
+        .chart-stat.cs-durability .cs-val { color: var(--pt-col); }
+        .chart-stat.cs-cost .cs-val { color: var(--sl-col); }
+        .chart-stat.cs-score .cs-val { color: var(--accent); }
+        .mat-card { cursor: pointer; transition: border-color 0.18s, box-shadow 0.18s, transform 0.18s; }
+        .mat-card:hover {
+            border-color: rgba(232,255,71,0.45) !important;
+            box-shadow: 0 0 24px rgba(232,255,71,0.08);
+            transform: translateY(-1px);
         }
 
         /* Chat */
-        #tab-chat {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
+        #tab-chat { display: flex; flex-direction: column; height: 100%; }
 
         #chat-messages {
-            flex: 1;
-            overflow-y: auto;
+            flex: 1; overflow-y: auto;
             padding: 14px 18px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
+            display: flex; flex-direction: column; gap: 10px;
             min-height: 0;
         }
 
-        #chat-messages::-webkit-scrollbar {
-            width: 3px;
-        }
-
-        #chat-messages::-webkit-scrollbar-thumb {
-            background: #1a1d2e;
-        }
+        #chat-messages::-webkit-scrollbar { width: 3px; }
+        #chat-messages::-webkit-scrollbar-thumb { background: #1a1d2e; }
 
         .msg {
-            max-width: 92%;
-            font-size: 11px;
-            line-height: 1.65;
-            padding: 9px 12px;
-            border-radius: 10px;
-            animation: fadeUp 0.2s ease;
-            white-space: pre-wrap;
+            max-width: 92%; font-size: 11px; line-height: 1.65;
+            padding: 9px 12px; border-radius: 10px;
+            animation: fadeUp 0.2s ease; white-space: pre-wrap;
         }
 
         .msg-user {
-            background: rgba(232, 255, 71, 0.1);
-            border: 1px solid rgba(232, 255, 71, 0.2);
-            color: #d8e8b0;
-            align-self: flex-end;
+            background: rgba(232,255,71,0.1); border: 1px solid rgba(232,255,71,0.2);
+            color: #d8e8b0; align-self: flex-end;
             border-radius: 10px 10px 2px 10px;
         }
 
         .msg-ai {
-            background: #0f1120;
-            border: 1px solid var(--border);
-            color: var(--text);
-            align-self: flex-start;
+            background: #0f1120; border: 1px solid var(--border);
+            color: var(--text); align-self: flex-start;
             border-radius: 10px 10px 10px 2px;
         }
 
-        .msg-ai.thinking {
-            color: var(--muted);
-            font-style: italic;
-        }
+        .msg-ai.thinking { color: var(--muted); font-style: italic; }
 
         @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(6px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(6px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
         #chat-input-row {
-            display: flex;
-            gap: 8px;
+            display: flex; gap: 8px;
             padding: 12px 18px;
             border-top: 1px solid var(--border);
             flex-shrink: 0;
         }
 
         #chat-input {
-            flex: 1;
-            background: #0f1120;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 8px 12px;
-            color: var(--text);
-            font-size: 11px;
-            font-family: 'IBM Plex Sans', sans-serif;
-            outline: none;
-            resize: none;
-            height: 38px;
+            flex: 1; background: #0f1120;
+            border: 1px solid var(--border); border-radius: 8px;
+            padding: 8px 12px; color: var(--text);
+            font-size: 11px; font-family: 'IBM Plex Sans', sans-serif;
+            outline: none; resize: none; height: 38px;
             transition: border-color 0.2s;
         }
 
-        #chat-input:focus {
-            border-color: rgba(232, 255, 71, 0.4);
-        }
+        #chat-input:focus { border-color: rgba(232,255,71,0.4); }
 
         #chat-send {
-            background: var(--accent);
-            color: #000;
-            border: none;
-            border-radius: 8px;
-            width: 38px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 700;
-            flex-shrink: 0;
-            transition: opacity 0.2s;
+            background: var(--accent); color: #000;
+            border: none; border-radius: 8px;
+            width: 38px; cursor: pointer;
+            font-size: 16px; font-weight: 700;
+            flex-shrink: 0; transition: opacity 0.2s;
         }
 
-        #chat-send:hover {
-            opacity: 0.85;
-        }
-
-        #chat-send:disabled {
-            opacity: 0.3;
-            cursor: default;
-        }
+        #chat-send:hover { opacity: 0.85; }
+        #chat-send:disabled { opacity: 0.3; cursor: default; }
     </style>
 </head>
 
@@ -832,18 +629,12 @@
     </div>
 
     <div id="legend">
-        <div class="leg-row">
-            <div class="leg-dot" style="background:var(--lb-col)"></div>Load-Bearing Wall
-        </div>
-        <div class="leg-row">
-            <div class="leg-dot" style="background:var(--pt-col)"></div>Partition Wall
-        </div>
-        <div class="leg-row">
-            <div class="leg-dot" style="background:var(--sl-col)"></div>Slab
-        </div>
-        <div class="leg-row">
-            <div class="leg-dot" style="background:var(--co-col)"></div>Column
-        </div>
+        <div class="leg-row"><div class="leg-dot" style="background:var(--lb-col)"></div>Load-Bearing Wall</div>
+        <div class="leg-row"><div class="leg-dot" style="background:var(--pt-col)"></div>Partition Wall</div>
+        <div class="leg-row"><div class="leg-dot" style="background:var(--sl-col)"></div>Slab</div>
+        <div class="leg-row"><div class="leg-dot" style="background:var(--co-col)"></div>Column</div>
+        <div class="leg-row"><div class="leg-dot" style="background:var(--win-col)"></div>Window</div>
+        <div class="leg-row"><div class="leg-dot" style="background:var(--gate-col)"></div>Door / Gate</div>
     </div>
 
     <div id="click-hint">Click any wall to inspect &nbsp;·&nbsp; Scroll to zoom &nbsp;·&nbsp; Drag to orbit</div>
@@ -862,25 +653,12 @@
         <div id="ov-body">
             <div id="ov-tab-summary">
                 <div id="ov-summary-grid">
-                    <div class="stat-card">
-                        <div class="num" id="s-total">—</div>
-                        <div class="lbl">Total Elements</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="num" id="s-lb">—</div>
-                        <div class="lbl">Load-Bearing</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="num" id="s-pt">—</div>
-                        <div class="lbl">Partition Walls</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="num" id="s-col">—</div>
-                        <div class="lbl">Cols + Slabs</div>
-                    </div>
+                    <div class="stat-card"><div class="num" id="s-total">—</div><div class="lbl">Total Elements</div></div>
+                    <div class="stat-card"><div class="num" id="s-lb">—</div><div class="lbl">Load-Bearing</div></div>
+                    <div class="stat-card"><div class="num" id="s-pt">—</div><div class="lbl">Partition Walls</div></div>
+                    <div class="stat-card"><div class="num" id="s-col">—</div><div class="lbl">Cols + Slabs</div></div>
                 </div>
-                <p id="ov-hint">Click any <strong>wall in the 3D view</strong> to open its material analysis and ask
-                    questions about it.</p>
+                <p id="ov-hint">Click any <strong>wall in the 3D view</strong> to open its material analysis and ask questions about it.</p>
             </div>
             <div id="ov-tab-elements" style="display:none"></div>
             <div id="ov-tab-concerns" style="display:none"></div>
@@ -915,28 +693,38 @@
         </div>
     </div>
 
+    <!-- Chart.js for popup radar charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+
     <script type="importmap">
-{ "imports": {
-    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
-    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
-}}
-</script>
+    { "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+    }}
+    </script>
 
     <script type="module">
         import * as THREE from 'three';
         import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-        const SCALE = 0.2, WALL_HEIGHT = 12, WALL_THICKNESS = 1.2;
+        // ── Constants ──────────────────────────────────────────────────────────
+        const SCALE          = 0.2;
+        const WALL_HEIGHT    = 12;
+        const WALL_THICKNESS = 1.2;
+        const WIN_HEIGHT     = WALL_HEIGHT * 0.5;
+        const WIN_Y_OFFSET   = WALL_HEIGHT * 0.3;   // sill height
+        const WIN_THICKNESS  = WALL_THICKNESS * 1.4; // slightly proud of wall
 
         const TYPE_COLORS = {
             load_bearing_wall: 0xff6b35,
-            partition_wall: 0x00d4aa,
-            slab: 0xbf5af2,
-            column: 0xffd60a,
+            partition_wall:    0x00d4aa,
+            slab:              0xbf5af2,
+            column:            0xffd60a,
         };
-        const SEL_COLOR = 0xe8ff47;
+        const SEL_COLOR    = 0xe8ff47;
         const SEL_EMISSIVE = 0x3a4000;
 
+        // ── Scene Setup ───────────────────────────────────────────────────────
         const scene = new THREE.Scene();
         scene.fog = new THREE.FogExp2(0x07080d, 0.0018);
 
@@ -954,6 +742,7 @@
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.enableDamping = true;
 
+        // ── Lighting ──────────────────────────────────────────────────────────
         scene.add(new THREE.HemisphereLight(0xffffff, 0x222233, 1.2));
         const sun = new THREE.DirectionalLight(0xfff5e0, 2.5);
         sun.position.set(100, 200, 80);
@@ -963,6 +752,7 @@
         sun.shadow.mapSize.set(2048, 2048);
         scene.add(sun);
 
+        // Ground plane
         const ground = new THREE.Mesh(
             new THREE.PlaneGeometry(2000, 2000),
             new THREE.MeshStandardMaterial({ color: 0x0d0e16, roughness: 0.9 })
@@ -971,19 +761,20 @@
         ground.receiveShadow = true;
         scene.add(ground);
 
-        const wallMeshes = [];
-        let selectedMesh = null;
-        let analysisData = null;
+        // ── State ─────────────────────────────────────────────────────────────
+        const wallMeshes  = [];
+        let selectedMesh  = null;
+        let analysisData  = null;
 
-        // ── Raycasting — only fire on clicks, not drags ──
+        // ── Raycasting (click vs drag) ────────────────────────────────────────
         const raycaster = new THREE.Raycaster();
-        const pointer = new THREE.Vector2();
+        const pointer   = new THREE.Vector2();
         let pointerDown = { x: 0, y: 0 };
 
         renderer.domElement.addEventListener('mousedown', e => { pointerDown = { x: e.clientX, y: e.clientY }; });
         renderer.domElement.addEventListener('mouseup', e => {
             if (Math.abs(e.clientX - pointerDown.x) > 5 || Math.abs(e.clientY - pointerDown.y) > 5) return;
-            pointer.x = (e.clientX / window.innerWidth) * 2 - 1;
+            pointer.x =  (e.clientX / window.innerWidth)  * 2 - 1;
             pointer.y = -(e.clientY / window.innerHeight) * 2 + 1;
             raycaster.setFromCamera(pointer, camera);
             const hits = raycaster.intersectObjects(wallMeshes.map(w => w.mesh));
@@ -993,13 +784,18 @@
             }
         });
 
+        // ── Wall builder ──────────────────────────────────────────────────────
         function createWall(wall, elData) {
             const x1 = wall.start.x * SCALE, z1 = wall.start.y * SCALE;
-            const x2 = wall.end.x * SCALE, z2 = wall.end.y * SCALE;
+            const x2 = wall.end.x   * SCALE, z2 = wall.end.y   * SCALE;
             const dx = x2 - x1, dz = z2 - z1;
             const len = Math.sqrt(dx * dx + dz * dz);
             if (len < 0.1) return;
-            const mat = new THREE.MeshStandardMaterial({ color: TYPE_COLORS[wall.element_type] ?? 0xffffff, roughness: 0.35, metalness: 0.05 });
+
+            const mat  = new THREE.MeshStandardMaterial({
+                color: TYPE_COLORS[wall.element_type] ?? 0xffffff,
+                roughness: 0.35, metalness: 0.05
+            });
             const mesh = new THREE.Mesh(new THREE.BoxGeometry(len, WALL_HEIGHT, WALL_THICKNESS), mat);
             mesh.position.set(x1 + dx / 2, WALL_HEIGHT / 2, z1 + dz / 2);
             mesh.rotation.y = -Math.atan2(dz, dx);
@@ -1008,6 +804,81 @@
             wallMeshes.push({ mesh, wall, elData });
         }
 
+        // ── Generic box helper (windows & frames) ─────────────────────────────
+        function createBox(p1, p2, h, thickness, yOff, color, opacity, depthOffset) {
+            const x1 = p1.x * SCALE, z1 = p1.y * SCALE;
+            const x2 = p2.x * SCALE, z2 = p2.y * SCALE;
+            const dx = x2 - x1, dz = z2 - z1;
+            const len = Math.sqrt(dx * dx + dz * dz);
+            if (len < 0.1) return null;
+            const angle = Math.atan2(dz, dx);
+
+            const geo = new THREE.BoxGeometry(len, h, thickness);
+            const mat = new THREE.MeshStandardMaterial({
+                color, transparent: opacity < 1, opacity,
+                roughness: 0.4,
+                polygonOffset: depthOffset !== 0,
+                polygonOffsetFactor: -depthOffset,
+                polygonOffsetUnits:  -depthOffset,
+            });
+
+            const mesh = new THREE.Mesh(geo, mat);
+            mesh.position.set(x1 + dx / 2, yOff + h / 2, z1 + dz / 2);
+            mesh.rotation.y = -angle;
+            mesh.renderOrder = depthOffset;
+            scene.add(mesh);
+            return mesh;
+        }
+
+        // ── Window renderer ───────────────────────────────────────────────────
+        function renderWindows(windows) {
+            if (!windows || !windows.length) return;
+            windows.forEach(win => {
+                // Sill
+                createBox(win.start, win.end, WALL_HEIGHT * 0.25, WIN_THICKNESS, 0, 0xdddddd, 1, 2);
+                // Header
+                createBox(win.start, win.end, WALL_HEIGHT * 0.15, WIN_THICKNESS, WALL_HEIGHT * 0.85, 0xdddddd, 1, 2);
+                // Glass
+                const glass = createBox(win.start, win.end, WIN_HEIGHT, WIN_THICKNESS * 0.5,
+                    WIN_Y_OFFSET, 0x00aaff, 0.55, 10);
+                if (glass) {
+                    glass.material.emissive = new THREE.Color(0x0044ff);
+                    glass.material.emissiveIntensity = 0.35;
+                }
+            });
+        }
+
+        // ── Gate / Door renderer ──────────────────────────────────────────────
+        function renderGates(gates) {
+            if (!gates || !gates.length) return;
+            gates.forEach(gate => {
+                const x1 = gate.start.x * SCALE, z1 = gate.start.y * SCALE;
+                const x2 = gate.end.x   * SCALE, z2 = gate.end.y   * SCALE;
+                const dx = x2 - x1, dz = z2 - z1;
+                const doorWidth = Math.sqrt(dx * dx + dz * dz);
+                const wallAngle = Math.atan2(dz, dx);
+
+                // Hinge pivot at start point
+                const pivot = new THREE.Group();
+                pivot.position.set(x1, 0, z1);
+
+                const doorMat  = new THREE.MeshStandardMaterial({ color: 0x8B4513, roughness: 0.7, metalness: 0.1 });
+                const doorMesh = new THREE.Mesh(
+                    new THREE.BoxGeometry(doorWidth, WALL_HEIGHT * 0.9, 1.2),
+                    doorMat
+                );
+                // Left-edge at pivot
+                doorMesh.position.set(doorWidth / 2, (WALL_HEIGHT * 0.9) / 2, 0);
+                doorMesh.castShadow = true;
+                pivot.add(doorMesh);
+
+                // ~40° swing open
+                pivot.rotation.y = -wallAngle + 0.7;
+                scene.add(pivot);
+            });
+        }
+
+        // ── Wall selection ────────────────────────────────────────────────────
         function selectWall(hit) {
             if (selectedMesh) {
                 const prev = wallMeshes.find(w => w.mesh === selectedMesh);
@@ -1022,7 +893,7 @@
             if (hit.elData) window.openPanel(hit.elData);
         }
 
-        // expose for overview list clicks
+        // Expose for overview list clicks
         window._selectByElId = (id) => {
             const hit = wallMeshes.find(w => w.elData && w.elData.element_id === id);
             if (hit) selectWall(hit);
@@ -1032,19 +903,36 @@
             }
         };
 
+        // ── Load scene: calls both APIs in parallel ───────────────────────────
         async function loadScene() {
             const statusEl = document.getElementById('render-status');
             try {
-                const res = await fetch('http://127.0.0.1:5000/api/material-analysis');
-                const result = await res.json();
-                if (result.status === 'success') {
-                    analysisData = result.analysis;
+                const [matRes, dataRes] = await Promise.all([
+                    fetch('http://127.0.0.1:5000/api/material-analysis'),
+                    fetch('http://127.0.0.1:5000/api/data')
+                ]);
+
+                const matResult  = await matRes.json();
+                const dataResult = await dataRes.json();
+
+                if (matResult.status === 'success') {
+                    analysisData = matResult.analysis;
                     const elMap = {};
-                    result.analysis.forEach(el => { elMap[el.element_id] = el; });
-                    result.walls.forEach(w => createWall(w, elMap[w.element_id]));
-                    statusEl.textContent = `${result.walls.length} segments · click a wall to inspect`;
-                    window.renderOverview(result);
+                    matResult.analysis.forEach(el => { elMap[el.element_id] = el; });
+
+                    // Render classified walls (from material analysis pipeline)
+                    matResult.walls.forEach(w => createWall(w, elMap[w.element_id]));
+
+                    statusEl.textContent = `${matResult.walls.length} walls · click a wall to inspect`;
+                    window.renderOverview(matResult);
                 }
+
+                if (dataResult.status === 'success') {
+                    // Render windows and gates from the inner detection pipeline
+                    renderWindows(dataResult.windows);
+                    renderGates(dataResult.gates);
+                }
+
             } catch (e) {
                 statusEl.innerHTML = '<span style="color:#ff4444">Backend failed — is Flask running?</span>';
                 document.getElementById('ov-status').textContent = 'Cannot reach http://127.0.0.1:5000';
@@ -1063,38 +951,41 @@
     </script>
 
     <script>
-        // ── All panel logic in plain JS (accessible from HTML onclick) ──
+        // ── All panel + overview logic in plain JS ─────────────────────────────
 
         const DOT_COLORS = {
             load_bearing_wall: 'var(--lb-col)',
-            partition_wall: 'var(--pt-col)',
-            slab: 'var(--sl-col)',
-            column: 'var(--co-col)',
+            partition_wall:    'var(--pt-col)',
+            slab:              'var(--sl-col)',
+            column:            'var(--co-col)',
         };
         const BADGE_CLASS = {
             load_bearing_wall: 'badge-lb',
-            partition_wall: 'badge-pt',
-            slab: 'badge-sl',
-            column: 'badge-co',
+            partition_wall:    'badge-pt',
+            slab:              'badge-sl',
+            column:            'badge-co',
         };
 
         window.openPanel = function (el) {
             window._currentEl = el;
 
-            document.getElementById('panel-el-id').textContent = el.element_id;
+            document.getElementById('panel-el-id').textContent   = el.element_id;
             document.getElementById('panel-el-label').textContent = el.room_label || el.element_type.replace(/_/g, ' ');
-            document.getElementById('panel-el-meta').textContent =
+            document.getElementById('panel-el-meta').textContent  =
                 `Span: ${el.span_m} m  ·  Area: ${el.area_m2} m²  ·  ${el.is_outer ? 'Outer Wall' : 'Interior'}`;
 
             renderDetails(el);
 
             // Reset chat with greeting
             document.getElementById('chat-messages').innerHTML = '';
-            appendMsg('ai', `Hi! I'm looking at ${el.element_id} (${el.element_type.replace(/_/g, ' ')}). The top recommendation is ${(el.recommendations || [])[0]?.material || '—'} with a score of ${(el.recommendations || [])[0]?.score?.toFixed(3) || '—'}. Ask me anything about materials, structural role, or cost tradeoffs.`);
+            appendMsg('ai',
+                `Hi! I'm looking at ${el.element_id} (${el.element_type.replace(/_/g, ' ')}). ` +
+                `The top recommendation is ${(el.recommendations || [])[0]?.material || '—'} ` +
+                `with a score of ${(el.recommendations || [])[0]?.score?.toFixed(3) || '—'}. ` +
+                `Ask me anything about materials, structural role, or cost tradeoffs.`
+            );
 
-            // Switch to details tab
             pSwitch('details', document.querySelector('.ptab'));
-
             document.getElementById('panel').classList.add('open');
             document.getElementById('overview').style.display = 'none';
         };
@@ -1102,22 +993,19 @@
         window.closePanel = function () {
             document.getElementById('panel').classList.remove('open');
             document.getElementById('overview').style.display = 'flex';
-            // deselect handled by Three.js side via selectWall reset — not needed here
         };
 
         function renderDetails(el) {
-            const wp = el.weight_profile || {};
-            const typeLabel = el.element_type.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+            const wp         = el.weight_profile || {};
+            const typeLabel  = el.element_type.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
             const badgeClass = BADGE_CLASS[el.element_type] || 'badge-pt';
+            const PPM        = 41.0;
 
-            const WALL_H = 3.0, WALL_T = 0.23;
-            const volume = el.span_m * WALL_H * WALL_T;
-
-            // --- Coordinates ---
-            const PPM = 41.0;
+            // Coordinates section
             let coordsHtml = '';
             if (el.start && el.end) {
-                const sx = el.start.x, sy = el.start.y, ex = el.end.x, ey = el.end.y;
+                const { x: sx, y: sy } = el.start;
+                const { x: ex, y: ey } = el.end;
                 coordsHtml = `
         <div class="coords-section">
             <div class="coords-title">Wall Coordinates</div>
@@ -1130,65 +1018,36 @@
         </div>`;
             }
 
-            // --- Material options with prices ---
-            const optionLabels = ['Best Option', 'Option 2', 'Option 3'];
-            const recs = (el.recommendations || []).slice(0, 3).map((r, i) => {
-                return `
-        <div class="mat-card rank-${i + 1}">
-            <div class="mat-rank-stripe stripe-${i + 1}"></div>
-            <div style="margin-left:8px;margin-bottom:4px"><span style="font-size:8px;text-transform:uppercase;letter-spacing:0.5px;color:${i===0?'var(--accent)':'var(--muted)'};font-family:'IBM Plex Mono',monospace">${optionLabels[i]}</span></div>
+            // Material option cards
+            const optLabels = ['Best Option', 'Option 2', 'Option 3'];
+            const recs = (el.recommendations || []).slice(0, 3).map((r, i) => `
+        <div class="mat-card rank-${i+1}">
+            <div class="mat-rank-stripe stripe-${i+1}"></div>
+            <div style="margin-left:8px;margin-bottom:4px">
+                <span style="font-size:8px;text-transform:uppercase;letter-spacing:0.5px;color:${i===0?'var(--accent)':'var(--muted)'};font-family:'IBM Plex Mono',monospace">${optLabels[i]}</span>
+            </div>
             <div class="mat-top">
                 <span class="mat-name">${r.material}</span>
                 <span class="mat-score">${r.score.toFixed(3)}</span>
             </div>
-            <div class="mat-bar-bg"><div class="mat-bar-fill" style="width:${(r.score * 100).toFixed(1)}%"></div></div>
-            <div style="margin:6px 0 6px 8px;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;color:var(--accent)">₹${r.unit_cost_inr.toLocaleString()}<span style="font-size:9px;color:var(--muted);font-weight:400"> / m³</span></div>
+
+            <div style="margin:6px 0 6px 8px;font-family:'IBM Plex Mono',monospace;font-size:14px;font-weight:600;color:var(--accent)">
+                &#8377;${r.unit_cost_inr.toLocaleString()}<span style="font-size:9px;color:var(--muted);font-weight:400"> / m&sup3;</span>
+            </div>
             <div class="mat-tags">
                 <span class="mat-tag">Cost: ${r.cost_label}</span>
                 <span class="mat-tag">Str: ${r.strength_label}</span>
                 <span class="mat-tag">Dur: ${r.durability_label}</span>
             </div>
             <div class="mat-note">${r.notes}</div>
-        </div>`;
-            }).join('');
+        </div>`).join('');
 
-            // --- Comparison table ---
-            const STR_MAP = {'Low':1,'Medium':2,'Medium\u2013High':2.5,'High':3,'Very High':4};
+            const STR_MAP = {'Low':1,'Medium':2,'Medium–High':2.5,'High':3,'Very High':4};
             const DUR_MAP = {'Low':1,'Medium':2,'High':3,'Very High':4};
-            const CST_MAP = {'Low':1,'Low\u2013Medium':1.5,'Medium':2,'Medium\u2013High':2.5,'High':3};
-            const allRecs = (el.recommendations || []).slice(0, 3);
-            const cmpColors = ['var(--accent)', 'var(--muted)', '#2a2d3e'];
-
-            function cmpBar(val, max, color) {
-                const pct = Math.round((val / max) * 100);
-                return `<div class="cmp-bar-wrap"><div class="cmp-bar" style="width:${pct}%;background:${color};min-width:4px"></div></div>`;
-            }
-
-            let cmpHtml = '';
-            if (allRecs.length > 1) {
-                let rows = allRecs.map((r, i) => {
-                    const str = STR_MAP[r.strength_label] || 2;
-                    const dur = DUR_MAP[r.durability_label] || 2;
-                    const cst = CST_MAP[r.cost_label] || 2;
-                    const color = cmpColors[i];
-                    return `<tr>
-                        <td><span class="cmp-mat-name ${i===0?'cmp-best':''}">${r.material}</span></td>
-                        <td>${cmpBar(str, 4, '#ff6b35')}<span class="cmp-bar-label">${r.strength_label}</span></td>
-                        <td>${cmpBar(dur, 4, '#00d4aa')}<span class="cmp-bar-label">${r.durability_label}</span></td>
-                        <td>${cmpBar(3 - cst + 1, 3, '#bf5af2')}<span class="cmp-bar-label">${r.cost_label}</span></td>
-                        <td style="font-family:'IBM Plex Mono',monospace;color:var(--accent);font-weight:600">\u20b9${r.unit_cost_inr.toLocaleString()}</td>
-                    </tr>`;
-                }).join('');
-                cmpHtml = `
-        <div class="mat-section-title" style="margin-top:16px">Comparison</div>
-        <table class="cmp-table">
-            <thead><tr><th>Material</th><th>Strength</th><th>Durability</th><th>Cost Eff.</th><th>Price/m\u00b3</th></tr></thead>
-            <tbody>${rows}</tbody>
-        </table>`;
-            }
+            const CST_MAP = {'Low':1,'Low–Medium':1.5,'Medium':2,'Medium–High':2.5,'High':3};
 
             const concerns = (el.concerns || []).map(c =>
-                `<div class="concern-box"><strong>\u26a0 Structural Concern</strong>${c}</div>`
+                `<div class="concern-box"><strong>⚠ Structural Concern</strong>${c}</div>`
             ).join('');
 
             document.getElementById('tab-details').innerHTML = `
@@ -1200,14 +1059,16 @@
             <div class="w-chip w-dur"><div class="wval">${wp.durability ?? '?'}</div><div class="wlbl">Durability</div></div>
             <div class="w-chip w-cst"><div class="wval">${wp.cost ?? '?'}</div><div class="wlbl">Cost</div></div>
         </div>
-        <div class="mat-section-title">Material Options \u2014 Pick the Best Fit</div>
+        <div class="mat-section-title">Material Options — Hover or Click to Compare</div>
         ${recs}
-        ${cmpHtml}
         ${concerns}
     `;
+
+            // Bind radar chart popup to each material card
+            bindMatCards(el.recommendations || [], STR_MAP, DUR_MAP, CST_MAP);
         }
 
-        // ── Chat ──
+        // ── Chat ──────────────────────────────────────────────────────────────
         function appendMsg(role, text) {
             const div = document.createElement('div');
             div.className = `msg msg-${role}`;
@@ -1247,21 +1108,20 @@
             input.focus();
         };
 
-        // ── Overview ──
+        // ── Overview ──────────────────────────────────────────────────────────
         window.renderOverview = function (result) {
             const { summary, analysis } = result;
             document.getElementById('s-total').textContent = summary.total_elements;
-            document.getElementById('s-lb').textContent = summary.load_bearing_walls;
-            document.getElementById('s-pt').textContent = summary.partition_walls;
-            document.getElementById('s-col').textContent = summary.slabs + summary.columns;
+            document.getElementById('s-lb').textContent    = summary.load_bearing_walls;
+            document.getElementById('s-pt').textContent    = summary.partition_walls;
+            document.getElementById('s-col').textContent   = summary.slabs + summary.columns;
 
             document.getElementById('ov-tab-elements').innerHTML = analysis.map(el => `
         <div class="ov-el-row" onclick="window._selectByElId('${el.element_id}')">
             <div class="ov-el-dot" style="background:${DOT_COLORS[el.element_type] || '#fff'}"></div>
             <div class="ov-el-name">${el.element_id} — ${el.room_label || el.element_type.replace(/_/g, ' ')}</div>
             <div class="ov-el-meta">${el.span_m}m</div>
-        </div>
-    `).join('');
+        </div>`).join('');
 
             const concerns = analysis.flatMap(el =>
                 (el.concerns || []).map(c => ({ id: el.element_id, label: el.room_label, concern: c }))
@@ -1271,8 +1131,7 @@
                 : concerns.map(c => `
             <div class="ov-concern">
                 <strong>${c.id} — ${c.label}</strong>${c.concern}
-            </div>
-        `).join('');
+            </div>`).join('');
 
             document.getElementById('ov-status').textContent =
                 `Ready · ${analysis.length} elements · ${concerns.length} concern(s)`;
@@ -1280,12 +1139,12 @@
             setTimeout(() => { document.getElementById('click-hint').style.opacity = '0'; }, 6000);
         };
 
-        // ── Tab switchers ──
-        function pSwitch(name, el) {
+        // ── Tab switchers ─────────────────────────────────────────────────────
+        function pSwitch(name) {
             document.querySelectorAll('.ptab').forEach(t => t.classList.remove('active'));
             document.querySelector(`.ptab:nth-child(${name === 'details' ? 1 : 2})`).classList.add('active');
             document.getElementById('tab-details').style.display = name === 'details' ? '' : 'none';
-            document.getElementById('tab-chat').style.display = name === 'chat' ? 'flex' : 'none';
+            document.getElementById('tab-chat').style.display    = name === 'chat'    ? 'flex' : 'none';
             if (name === 'chat') {
                 setTimeout(() => document.getElementById('chat-messages').lastElementChild?.scrollIntoView(), 50);
                 document.getElementById('chat-input').focus();
@@ -1295,12 +1154,226 @@
         function ovSwitch(name, el) {
             document.querySelectorAll('.ovtab').forEach(t => t.classList.remove('active'));
             el.classList.add('active');
-            document.getElementById('ov-tab-summary').style.display = name === 'summary' ? '' : 'none';
+            document.getElementById('ov-tab-summary').style.display  = name === 'summary'  ? '' : 'none';
             document.getElementById('ov-tab-elements').style.display = name === 'elements' ? '' : 'none';
             document.getElementById('ov-tab-concerns').style.display = name === 'concerns' ? '' : 'none';
+        }
+
+        // ── Chart Popup ───────────────────────────────────────────────────────
+        // Inject the popup DOM once
+        (function () {
+            const popup = document.createElement('div');
+            popup.id = 'chart-popup';
+            popup.innerHTML = `
+                <div id="chart-popup-inner">
+                    <div id="chart-popup-header">
+                        <div>
+                            <div id="chart-popup-title">—</div>
+                            <div id="chart-popup-sub">—</div>
+                        </div>
+                        <div id="chart-popup-rank-badge">—</div>
+                    </div>
+                    <canvas id="chart-popup-canvas" width="276" height="220"></canvas>
+                    <div class="chart-divider"></div>
+                    <div class="chart-stats-row">
+                        <div class="chart-stat cs-strength"><div class="cs-val" id="cp-str">—</div><div class="cs-lbl">Strength</div></div>
+                        <div class="chart-stat cs-durability"><div class="cs-val" id="cp-dur">—</div><div class="cs-lbl">Durability</div></div>
+                        <div class="chart-stat cs-cost"><div class="cs-val" id="cp-cst">—</div><div class="cs-lbl">Cost Effect.</div></div>
+                        <div class="chart-stat cs-score"><div class="cs-val" id="cp-score">—</div><div class="cs-lbl">Overall Score</div></div>
+                    </div>
+                </div>`;
+            document.body.appendChild(popup);
+        })();
+
+        let _chartInstance = null;
+        let _popupPinned = false;
+
+        const RANK_LABELS = ['Best Option', 'Option 2', 'Option 3'];
+
+        function showChartPopup(rec, cardEl, STR_MAP, DUR_MAP, CST_MAP, rankIndex) {
+            const popup = document.getElementById('chart-popup');
+            const str    = STR_MAP[rec.strength_label]   || 2;
+            const dur    = DUR_MAP[rec.durability_label] || 2;
+            const cstRaw = CST_MAP[rec.cost_label]       || 2;
+            const cstEff = parseFloat(((4 - cstRaw) / 3 * 4).toFixed(2));
+            const scoreN = parseFloat((rec.score * 4).toFixed(2));
+
+            document.getElementById('chart-popup-title').textContent = rec.material;
+            document.getElementById('chart-popup-sub').textContent =
+                `₹${rec.unit_cost_inr.toLocaleString()}/m³  ·  Score ${rec.score.toFixed(3)}`;
+            document.getElementById('chart-popup-rank-badge').textContent =
+                RANK_LABELS[rankIndex] || `Option ${rankIndex + 1}`;
+            document.getElementById('cp-str').textContent   = rec.strength_label;
+            document.getElementById('cp-dur').textContent   = rec.durability_label;
+            document.getElementById('cp-cst').textContent   = rec.cost_label;
+            document.getElementById('cp-score').textContent = rec.score.toFixed(3);
+
+            // ── Smart positioning: prefer left of panel, else right ─────────
+            const panelRect = document.getElementById('panel').getBoundingClientRect();
+            const pw = 320, ph = 420;
+            let left = panelRect.left - pw - 16;
+            if (left < 8) left = panelRect.right + 16;
+            const cardRect = cardEl.getBoundingClientRect();
+            let top  = cardRect.top - 20;
+            const vpH = window.innerHeight;
+            if (top + ph > vpH) top = vpH - ph - 8;
+            if (top < 8) top = 8;
+            popup.style.left = left + 'px';
+            popup.style.top  = top  + 'px';
+
+            // ── Draw premium radar chart ────────────────────────────────────
+            const canvas = document.getElementById('chart-popup-canvas');
+            if (_chartInstance) { _chartInstance.destroy(); _chartInstance = null; }
+            const ctx = canvas.getContext('2d');
+
+            // Per-axis accent colors
+            const axisColors = ['#ff6b35','#00d4aa','#bf5af2','#e8ff47'];
+
+            // Custom plugin: coloured axis spokes
+            const spokeColorPlugin = {
+                id: 'spokeColors',
+                afterDraw(chart) {
+                    const { ctx: c, scales: { r } } = chart;
+                    const cx = r.xCenter, cy = r.yCenter;
+                    axisColors.forEach((col, i) => {
+                        const angle = r.getIndexAngle(i) - Math.PI / 2;
+                        const x = cx + Math.cos(angle) * r.drawingArea;
+                        const y = cy + Math.sin(angle) * r.drawingArea;
+                        c.save();
+                        c.strokeStyle = col + '66';
+                        c.lineWidth = 1.5;
+                        c.setLineDash([3, 4]);
+                        c.beginPath();
+                        c.moveTo(cx, cy);
+                        c.lineTo(x, y);
+                        c.stroke();
+                        c.restore();
+                    });
+                }
+            };
+
+            _chartInstance = new Chart(ctx, {
+                type: 'radar',
+                plugins: [spokeColorPlugin],
+                data: {
+                    labels: ['Strength', 'Durability', 'Value', 'Score'],
+                    datasets: [{
+                        data: [str, dur, cstEff, scoreN],
+                        // gradient fill drawn via custom plugin or just a semi-transparent yellow
+                        backgroundColor: (ctx2) => {
+                            const { chart } = ctx2;
+                            const { ctx: c, chartArea } = chart;
+                            if (!chartArea) return 'rgba(232,255,71,0.08)';
+                            const grad = c.createRadialGradient(
+                                chart.scales.r.xCenter, chart.scales.r.yCenter, 0,
+                                chart.scales.r.xCenter, chart.scales.r.yCenter,
+                                chart.scales.r.drawingArea
+                            );
+                            grad.addColorStop(0,   'rgba(232,255,71,0.22)');
+                            grad.addColorStop(0.6, 'rgba(232,255,71,0.08)');
+                            grad.addColorStop(1,   'rgba(232,255,71,0.02)');
+                            return grad;
+                        },
+                        borderColor: 'rgba(232,255,71,0.9)',
+                        borderWidth: 2,
+                        pointBackgroundColor: axisColors,
+                        pointBorderColor: axisColors,
+                        pointBorderWidth: 2,
+                        pointRadius: 5,
+                        pointHoverRadius: 7,
+                        fill: true,
+                    }]
+                },
+                options: {
+                    animation: { duration: 450, easing: 'easeOutExpo' },
+                    responsive: false,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#0d0f20',
+                            borderColor: 'rgba(232,255,71,0.35)',
+                            borderWidth: 1,
+                            titleColor: '#e8ff47',
+                            bodyColor: '#c8ccd8',
+                            padding: 10,
+                            callbacks: {
+                                label: (ctx3) => ` ${ctx3.parsed.r.toFixed(2)} / 4.00`
+                            }
+                        }
+                    },
+                    scales: {
+                        r: {
+                            min: 0, max: 4,
+                            ticks: { display: false, stepSize: 1 },
+                            grid: {
+                                color: (ctx4) => {
+                                    const lvl = ctx4.tick?.value;
+                                    return lvl === 4
+                                        ? 'rgba(232,255,71,0.18)'
+                                        : 'rgba(255,255,255,0.05)';
+                                },
+                                lineWidth: (ctx5) => ctx5.tick?.value === 4 ? 1.5 : 1,
+                            },
+                            angleLines: { display: false },
+                            pointLabels: {
+                                color: (ctx6) => axisColors[ctx6.index] || '#7a8098',
+                                font: { family: "'IBM Plex Mono', monospace", size: 10, weight: '600' },
+                                padding: 6,
+                            }
+                        }
+                    }
+                }
+            });
+
+            popup.classList.add('visible');
+        }
+
+        function hideChartPopup() {
+            if (_popupPinned) return;
+            document.getElementById('chart-popup').classList.remove('visible');
+        }
+
+        function bindMatCards(recs, STR_MAP, DUR_MAP, CST_MAP) {
+            // slight delay so DOM is rendered
+            setTimeout(() => {
+                let lastPinnedIndex = -1;
+                document.querySelectorAll('.mat-card').forEach((card, i) => {
+                    const rec = recs[i];
+                    if (!rec) return;
+
+                    card.addEventListener('mouseenter', () => {
+                        if (!_popupPinned) showChartPopup(rec, card, STR_MAP, DUR_MAP, CST_MAP, i);
+                    });
+                    card.addEventListener('mouseleave', () => {
+                        if (!_popupPinned) hideChartPopup();
+                    });
+                    card.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        if (_popupPinned && lastPinnedIndex === i) {
+                            // same card clicked again → unpin
+                            _popupPinned = false;
+                            lastPinnedIndex = -1;
+                            hideChartPopup();
+                        } else {
+                            _popupPinned = true;
+                            lastPinnedIndex = i;
+                            showChartPopup(rec, card, STR_MAP, DUR_MAP, CST_MAP, i);
+                        }
+                    });
+                });
+
+                // click outside popup → unpin
+                document.addEventListener('click', (e) => {
+                    const popup = document.getElementById('chart-popup');
+                    if (!popup.contains(e.target) && !e.target.closest('.mat-card')) {
+                        _popupPinned = false;
+                        lastPinnedIndex = -1;
+                        hideChartPopup();
+                    }
+                }, { capture: true });
+            }, 0);
         }
     </script>
 
 </body>
-
 </html>
