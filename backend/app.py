@@ -97,6 +97,15 @@ def material_analysis():
 
         result = analyser.to_dict(elements)
 
+        # Merge wall coordinate data into analysis results
+        wall_map = {w["element_id"]: w for w in walls}
+        for r in result:
+            wdata = wall_map.get(r["element_id"])
+            if wdata:
+                r["start"]     = wdata["start"]
+                r["end"]       = wdata["end"]
+                r["length_px"] = wdata["length_px"]
+
         # Attach the LLM explainability prompt text (frontend can display as-is,
         # or you can call an LLM API here and replace prompt_text with explanation)
         for i, el in enumerate(elements):
